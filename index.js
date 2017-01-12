@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/index.html'));
     //res.end('Welcome to the Timestamp API Microservice! To use the API, enter a unix timestamp or natural language date (January 1, 2017) as a parameter in the URL.');
 })
+app.use(express.static(__dirname + '/css'));
+
 app.get('/:dateparam', (req, res) => {
     var dateParam = req.params.dateparam;
     var dateObj = {"unix": '', "natural": ''};
